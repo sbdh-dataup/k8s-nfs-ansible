@@ -105,3 +105,13 @@
         src: "{{ mount_path }}"
         state: link
       become: true
+
+    # we are not using kerberos; may improve performance
+    - name: blacklist rpc gss kernel modules
+      kernel_blacklist:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "rpcsec_gss_krb5"
+        - "auth_rpcgss"
+      become: true
