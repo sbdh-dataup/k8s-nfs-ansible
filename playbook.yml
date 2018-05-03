@@ -86,7 +86,7 @@
 
     - name: mount nfs filesystem
       mount:
-        path: "{{ mount_path}}"
+        path: "{{ mount_path }}"
         src: "{{ nfs_server_host }}:{{ export_path }}"
         fstype: nfs
         opts: "{{ mount_options }}"
